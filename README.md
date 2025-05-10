@@ -17,5 +17,5 @@ while true; do
   usage=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}')
   echo "$ts,$usage"
   sleep 1
-done | cargo run -- --window-size 5 --timestamped
+done | cargo run -- --timestamped
 ```
