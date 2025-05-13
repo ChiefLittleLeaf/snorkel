@@ -8,7 +8,7 @@ while true; do
   usage=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}')
   echo "$usage"
   sleep 1
-done | cargo run
+done | cargo run -- ema
 ```
 ## Basic Example with timestamps on a Linux machine
 ```bash
@@ -17,5 +17,5 @@ while true; do
   usage=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}')
   echo "$ts,$usage"
   sleep 1
-done | cargo run -- --timestamped
+done | cargo run -- ema --timestamp
 ```
