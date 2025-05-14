@@ -1,6 +1,5 @@
 use snorkel::commands::{cycles::handle_cycles, ema::handle_ema, zscore::handle_zscore};
-use std::fs::File;
-use std::io::{BufWriter, Write};
+use std::io::Write;
 use tempfile::NamedTempFile;
 
 #[test]
@@ -11,7 +10,7 @@ fn test_detect_cycles_true() {
         writeln!(file, "{a},{b}").unwrap();
     }
     let results = handle_cycles(Some(file.path().to_str().unwrap().to_string()), true);
-    assert!(result.is_ok());
+    assert!(results.is_ok());
 }
 #[test]
 fn test_zscore_runs() {
@@ -38,6 +37,7 @@ fn test_ema_runs() {
     }
     let result = handle_ema(
         None,
+        3,
         Some(file.path().to_str().unwrap().to_string()),
         None,
         false,
