@@ -1,0 +1,10 @@
+Router1,Switch1
+Switch1,Switch2
+Switch2,Firewall1
+Firewall1,Router1
+Router1,AccessPoint1
+Switch1,Server1
+Switch2,Server2
+Firewall1,Internet
+AccessPoint1,Laptop1
+AccessPoint1,Phone1

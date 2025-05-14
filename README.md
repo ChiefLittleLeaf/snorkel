@@ -38,3 +38,13 @@ while true; do
   sleep 1
 done | cargo run -- zscore --timestamp
 ```
+
+## Basic cycle example with no cycle
+```bash
+echo -e "A,B\nB,C\nC,A" | cargo run -- cycles
+```
+
+## Basic cycle example with real world like data
+```text
+cargo run -- cycles --input sample_data/network_topology_with_cycle.csv --directed
+```
